@@ -10,7 +10,7 @@ app.use(cors());
 require('./server/database/database')();
 
 
-//app.use('/api/user', require('./server/router/userRouter'))
+app.use('/api/products', require('./server/router/productRouter'))
 
 
 
