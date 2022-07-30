@@ -1,39 +1,49 @@
-import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+import * as React from "react";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
+import { Box } from "@mui/system";
 
-function ProductCard({product}) {
+function ProductCard({ product }) {
   return (
-    <Card sx={{ maxWidth: 345 }}>
-    <CardMedia
-      component="img"
-      height="140"
-      image={product.image}
-      alt="green iguana"
-    />
-    <CardContent>
-      <Typography gutterBottom variant="h5" component="div">
-        {product.title}
-      </Typography>
-      <Typography variant="body2" color="text.secondary">
-        {product.description}
-      </Typography>
-    </CardContent>
-    <CardContent>
-      <Typography gutterBottom variant="h5" component="div">
-        {product.price}
-      </Typography>
-    </CardContent>
-    <CardActions>
-      <Button size="small">ADD TO CART</Button>
-      <Button size="small">BUY NOW</Button>
-    </CardActions>
-  </Card>
-  )
+    <Card elevation={10} sx={{ maxWidth: 350, height: 450, m:'40px auto'}}>
+      <CardMedia
+        component="img"
+        height="210"
+        image={product.image}
+        alt="green iguana"
+      />
+      <CardContent>
+        <Box sx={{ height: 30 }}>
+          <Typography gutterBottom variant="h5" component="div">
+            {product.title}
+          </Typography>
+        </Box>
+        <Box sx={{ height: 40, mt: 1 }}>
+          <Typography variant="body2" color="text.secondary">
+            {product.description}
+          </Typography>
+        </Box>
+      </CardContent>
+      <CardContent sx={{ display: "flex" }}>
+        <CurrencyRupeeIcon sx={{ mt: 0.5 }} />
+        <Typography gutterBottom variant="h5" component="div">
+          {product.price}
+        </Typography>
+      </CardContent>
+      <CardContent sx={{ display: "flex", justifyContent: "space-between" }}>
+        <Button variant="contained" size="small">
+          ADD TO CART
+        </Button>
+        <Button variant="contained" size="small">
+          BUY NOW
+        </Button>
+      </CardContent>
+    </Card>
+  );
 }
 
-export default ProductCard
+export default ProductCard;
